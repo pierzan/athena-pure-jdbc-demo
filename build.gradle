@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "s3://repo-984875998166/third-party"
+        credentials(AwsCredentials) {
+            accessKey = [awsAccessKey]
+            secretKey = [awsSecretKey]
+        }
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+ext {
+    athenaJdbcVersion = '2.0.2'
+    awsSdkVersion = '1.11.5'
+}
+
+dependencies {
+
+    compile group: 'Athena', name: 'AthenaJDBC42', version: rootProject.ext.athenaJdbcVersion
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'com.google.guava', name: 'guava', version: '25.0-jre'
+
+}

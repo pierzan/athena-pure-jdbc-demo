@@ -1,0 +1,3 @@
+# AWS Credentials
+awsAccessKey = [Access key ID]
+awsSecretKey = [Secret access key]

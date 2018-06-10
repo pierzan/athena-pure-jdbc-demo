@@ -12,5 +12,5 @@ Stesps to run:
    ```
    ./gradlew execute
    ```
-  and waatch the output :)
+  and watch the output :)
 

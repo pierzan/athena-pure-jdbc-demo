@@ -8,6 +8,9 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.tomtom.athena.sample.SimpleAthenaQuery'
 
 
 repositories {
@@ -41,11 +44,4 @@ dependencies {
 
 processResources {
     expand(awsAccessKey: awsAccessKey, awsSecretKey: awsSecretKey)
-}
-
-
-
-task execute(type:JavaExec) {
-    main = 'com.tomtom.athena.sample.SimpleAthenaQuery'
-    classpath = sourceSets.main.runtimeClasspath
 }

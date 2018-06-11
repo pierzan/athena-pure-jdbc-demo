@@ -43,7 +43,8 @@ public class SimpleAthenaQuery {
         final ResultSet queryResults = executeQuery(connection, query);
         printQueryResults(queryResults);
 
-        System.exit(0);
+        queryResults.close();
+        connection.close();
     }
 
     private static void printQueryResults(
